@@ -7,6 +7,7 @@ To ensure consistency and quality, the following steps MUST be performed for **e
 - [ ] **Check Duplicates**: Before adding a skill, check `skills_index.json` or `ls skills/` to ensure it doesn't exist.
 - [ ] **Folder Structure**: Each skill must have its own folder in `skills/<skill-name>`.
 - [ ] **SKILL.md**: Every skill directory MUST contain a `SKILL.md` file with valid frontmatter:
+
   ```markdown
   ---
   name: Skill Name
@@ -19,10 +20,13 @@ To ensure consistency and quality, the following steps MUST be performed for **e
 Running the scripts is **MANDATORY** after any change to `skills/`.
 
 - [ ] **Validate Skills**: Run the validation script to check for formatting errors.
+
   ```bash
   python3 scripts/validate_skills.py
   ```
+
 - [ ] **Generate Index**: Update `skills_index.json`. This is the source of truth for the agent.
+
   ```bash
   python3 scripts/generate_index.py
   ```
@@ -31,12 +35,15 @@ Running the scripts is **MANDATORY** after any change to `skills/`.
 
 The `README.md` does not auto-update. You must manually sync it with the index.
 
-- [ ] **Update Skill Count**: Check the output of `generate_index.py` (e.g., "Generated index with 131 skills") and update the badge/text in `README.md`.
-  - Line ~3: `> **The Ultimate Collection of [NUMBER]+ Agentic Skills...`
-  - Line ~9: `...library of **[NUMBER] high-performance skills**...`
-  - Line ~39: `## Full Skill Registry ([NUMBER]/[NUMBER])`
-- [ ] **Update Registry Table**: If new skills were added, add them to the alphabetical table in `README.md`.
-- [ ] **Update Categories**: If the skill fits a specific category (e.g., Security, Design), update the "Features & Categories" table.
+- [ ] **About / Introduction**: Update the total count in the opening paragraph and blockquote.
+  - `> **The Ultimate Collection of [X]+ Agentic Skills...`
+  - `...library of **[X] high-performance skills**...`
+- [ ] **Features & Categories Table**: If the new skill fits a category, update the table in `# Features & Categories`.
+- [ ] **Full Skill Registry Table**: Add the new skill to the main table.
+  - Format: `| **[Name]** | [Description] | [Path] |`
+  - Verify alphabetical order.
+- [ ] **Credits & Sources**: If the skill was imported from a community repo, add a credit link in `# Credits & Sources`.
+  - Example: `- **[repo-name](url)**: Source for [skill-name].`
 
 ## 4. Git Operations
 
